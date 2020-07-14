@@ -1,25 +1,43 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+// import { Grid } from '@material-ui/core';
+// import { makeStyles } from '@material-ui/core/styles';
+import MyHeader from './components/Header';
+// import Content from './components/content';
+import { Routes, Route} from 'react-router-dom';
+import About from './components/About';
+import Home from './components/Home';
+import NotFound from './components/NotFound';
+import Product from './components/Product';
+import ProductDetail from './components/ProductDetail';
+// import ProductHome from './components/ProductHome';
+import { GlobalProvider } from './context/GlobalState';
+import CartList from './components/CartList';
+import MyHome from './components/Home1';
+
+// const useStyles = makeStyles({
+//   helloWorldStyle: {
+//     fontStyle: 'oblique',
+//     color: 'red',
+//   }
+// })
 
 function App() {
+  // const classes = useStyles();
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <GlobalProvider>
+      <MyHeader />
+      <Routes>
+        {/* <Route path="/" element={<Home />} /> */}
+        <Route path="/" element={<MyHome />} />
+        <Route path="products" element={<Product />}>
+          <Route path=":productId" element={<ProductDetail />} />
+        </Route>
+        <Route path="about" element={<About />} />
+        <Route path="cartlist" element={<CartList />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </GlobalProvider>
   );
 }
 
