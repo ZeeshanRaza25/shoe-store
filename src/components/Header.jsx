@@ -1,14 +1,14 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { fade, makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
-import IconButton from '@material-ui/core/IconButton';
-import Badge from '@material-ui/core/Badge';
+// import IconButton from '@material-ui/core/IconButton';
+// import Badge from '@material-ui/core/Badge';
 // import MenuIcon from '@material-ui/icons/Menu';
 // import SearchIcon from '@material-ui/icons/Search';
-import AddShoppingCartSharpIcon from '@material-ui/icons/AddShoppingCartSharp';
+// import AddShoppingCartSharpIcon from '@material-ui/icons/AddShoppingCartSharp';
 import { Link } from 'react-router-dom';
-import { GlobalContext } from '../context/GlobalState';
+// import { GlobalContext } from '../context/GlobalState';
 
 const useStyles = makeStyles((theme) => ({
   grow: {
@@ -79,8 +79,8 @@ const useStyles = makeStyles((theme) => ({
 
 export default function MyHeader() {
   // const navigate = useNavigate();
-  const { items } = useContext(GlobalContext);
-  console.log(items)
+  // const { items } = useContext(GlobalContext);
+  // console.log(items)
   const classes = useStyles();
   return (
     <div className={classes.grow}>
@@ -103,13 +103,16 @@ export default function MyHeader() {
             />
           </div> */}
           <div className={classes.grow} />
+          <Link to="/" style={{ textDecoration: 'none', color: 'white' }}>
+            Home &nbsp; &nbsp;
+          </Link>
           <Link to="/products" style={{ textDecoration: 'none', color: 'white' }}>
             Products &nbsp; &nbsp;
           </Link>
-          <Link to="/about" style={{ textDecoration: 'none', color: 'white' }}>
+          {/* <Link to="/about" style={{ textDecoration: 'none', color: 'white' }}>
             About &nbsp;
-          </Link>
-          <div className={classes.sectionDesktop}>
+          </Link> */}
+          {/* <div className={classes.sectionDesktop}>
             <Link to="/cartlist" style={{ textDecoration: 'none', color: 'white' }}>
               <IconButton aria-label="show 17 new notifications" color="inherit">
                 <Badge badgeContent={items.length} color="secondary">
@@ -117,7 +120,7 @@ export default function MyHeader() {
                 </Badge>
               </IconButton>
             </Link>
-          </div>
+          </div> */}
         </Toolbar>
       </AppBar>
     </div>

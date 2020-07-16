@@ -1,7 +1,7 @@
 import React from 'react';
 import { Rating } from '@material-ui/lab';
-import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
+import Typography from '@material-ui/core/Typography';
 
 export default function RatingComponent({ rating }) {
     const [value, setValue] = React.useState(rating);
